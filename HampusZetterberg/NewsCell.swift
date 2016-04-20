@@ -1,5 +1,5 @@
 //
-//  SBCell.swift
+//  NewsCell.swift
 //  HampusZetterberg
 //
 //  Created by Hampus Zätterberg on 2016-04-20.
@@ -8,9 +8,7 @@
 
 import UIKit
 
-class SBCell: UITableViewCell {
+class NewsCell: UITableViewCell {
     @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var pubDate: UILabel!
-    
-    var link: String = ""
 }

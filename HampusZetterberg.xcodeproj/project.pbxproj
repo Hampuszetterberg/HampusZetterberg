@@ -13,8 +13,8 @@
 		D44C61BD1CC7D14D00920F93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44C61BC1CC7D14D00920F93 /* Assets.xcassets */; };
 		D44C61C01CC7D14D00920F93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44C61BE1CC7D14D00920F93 /* LaunchScreen.storyboard */; };
 		D44C61C81CC7D23700920F93 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C61C71CC7D23700920F93 /* XMLParser.swift */; };
-		D44C61CA1CC7DB3300920F93 /* SBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C61C91CC7DB3300920F93 /* SBModel.swift */; };
-		D44C61CC1CC7DD6E00920F93 /* SBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C61CB1CC7DD6E00920F93 /* SBCell.swift */; };
+		D44C61CA1CC7DB3300920F93 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C61C91CC7DB3300920F93 /* NewsModel.swift */; };
+		D44C61CC1CC7DD6E00920F93 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C61CB1CC7DD6E00920F93 /* NewsCell.swift */; };
 		D44C61D11CC7F96F00920F93 /* NewsDetailsControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C61CF1CC7F96F00920F93 /* NewsDetailsControllerViewController.swift */; };
 		D44C61D21CC7F96F00920F93 /* NewsDetailsControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44C61D01CC7F96F00920F93 /* NewsDetailsControllerViewController.xib */; };
 /* End PBXBuildFile section */
@@ -28,8 +28,8 @@
 		D44C61BF1CC7D14D00920F93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D44C61C11CC7D14D00920F93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44C61C71CC7D23700920F93 /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
-		D44C61C91CC7DB3300920F93 /* SBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBModel.swift; sourceTree = "<group>"; };
-		D44C61CB1CC7DD6E00920F93 /* SBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBCell.swift; sourceTree = "<group>"; };
+		D44C61C91CC7DB3300920F93 /* NewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		D44C61CB1CC7DD6E00920F93 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		D44C61CF1CC7F96F00920F93 /* NewsDetailsControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailsControllerViewController.swift; sourceTree = "<group>"; };
 		D44C61D01CC7F96F00920F93 /* NewsDetailsControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailsControllerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,16 +65,16 @@
 			isa = PBXGroup;
 			children = (
 				D44C61B51CC7D14D00920F93 /* AppDelegate.swift */,
-				D44C61B71CC7D14D00920F93 /* TableViewController.swift */,
 				D44C61C71CC7D23700920F93 /* XMLParser.swift */,
+				D44C61B71CC7D14D00920F93 /* TableViewController.swift */,
+				D44C61C91CC7DB3300920F93 /* NewsModel.swift */,
+				D44C61CB1CC7DD6E00920F93 /* NewsCell.swift */,
+				D44C61CF1CC7F96F00920F93 /* NewsDetailsControllerViewController.swift */,
+				D44C61D01CC7F96F00920F93 /* NewsDetailsControllerViewController.xib */,
 				D44C61B91CC7D14D00920F93 /* Main.storyboard */,
 				D44C61BC1CC7D14D00920F93 /* Assets.xcassets */,
 				D44C61BE1CC7D14D00920F93 /* LaunchScreen.storyboard */,
 				D44C61C11CC7D14D00920F93 /* Info.plist */,
-				D44C61C91CC7DB3300920F93 /* SBModel.swift */,
-				D44C61CB1CC7DD6E00920F93 /* SBCell.swift */,
-				D44C61CF1CC7F96F00920F93 /* NewsDetailsControllerViewController.swift */,
-				D44C61D01CC7F96F00920F93 /* NewsDetailsControllerViewController.xib */,
 			);
 			path = HampusZetterberg;
 			sourceTree = "<group>";
@@ -154,8 +154,8 @@
 				D44C61B81CC7D14D00920F93 /* TableViewController.swift in Sources */,
 				D44C61B61CC7D14D00920F93 /* AppDelegate.swift in Sources */,
 				D44C61D11CC7F96F00920F93 /* NewsDetailsControllerViewController.swift in Sources */,
-				D44C61CC1CC7DD6E00920F93 /* SBCell.swift in Sources */,
-				D44C61CA1CC7DB3300920F93 /* SBModel.swift in Sources */,
+				D44C61CC1CC7DD6E00920F93 /* NewsCell.swift in Sources */,
+				D44C61CA1CC7DB3300920F93 /* NewsModel.swift in Sources */,
 				D44C61C81CC7D23700920F93 /* XMLParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

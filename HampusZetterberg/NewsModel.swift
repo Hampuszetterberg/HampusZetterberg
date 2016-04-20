@@ -1,5 +1,5 @@
 //
-//  SBModel.swift
+//  NewsModell.swift
 //  HampusZetterberg
 //
 //  Created by Hampus Zätterberg on 2016-04-20.
@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct SBModel {
+struct NewsModel {
     var title: String = ""
-    var link: String = ""
     var description: String = ""
     var pubDate: String = ""
 }

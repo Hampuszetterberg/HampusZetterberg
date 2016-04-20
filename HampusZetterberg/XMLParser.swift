@@ -15,11 +15,10 @@ protocol XMLParserDelegate {
 class XMLParser : NSObject,NSXMLParserDelegate {
     private var parser = NSXMLParser()
     private var element = String()
-    private var object: SBModel?
-    var articles = [SBModel]()
+    private var object: NewsModel?
+    var articles = [NewsModel]()
     var delegate: XMLParserDelegate?
     
-
     func parse(feed: String) {
         parser = NSXMLParser(contentsOfURL:(NSURL(string:feed))!)!
         parser.delegate = self
@@ -30,7 +29,7 @@ class XMLParser : NSObject,NSXMLParserDelegate {
         element = elementName
         
         if elementName == "item" {
-            object = SBModel()
+            object = NewsModel()
         }
     }
     
@@ -38,8 +37,6 @@ class XMLParser : NSObject,NSXMLParserDelegate {
         if object != nil {
             if element == "title" {
                 object!.title += string
-            } else if element == "link" {
-                object!.link += string
             } else if element == "description" {
                 object!.description += string
             }  else if element == "pubDate" {

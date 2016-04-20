@@ -12,7 +12,7 @@ class NewsDetailsControllerViewController: UIViewController {
     @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var detailedDescription: UITextView!
     
-    var data = SBModel()
+    var data = NewsModel()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

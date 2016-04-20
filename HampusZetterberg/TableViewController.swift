@@ -13,14 +13,16 @@ struct Constants {
 }
 
 class TableViewController: UITableViewController {
-    private var parser: XMLParser!
-    private var filteredArticles = [SBModel]()
-    private var isPerfomingSearch = false
-    
     @IBOutlet var searchBar: UISearchBar!
+    
+    private var parser: XMLParser!
+    private var filteredArticles = [NewsModel]()
+    private var isPerfomingSearch = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.contentInset.top = 20
         
         searchBar.delegate = self
         
@@ -39,13 +41,12 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell : SBCell = tableView.dequeueReusableCellWithIdentifier("cell") as! SBCell
+        let cell : NewsCell = tableView.dequeueReusableCellWithIdentifier("cell") as! NewsCell
         
         let artictlesToView = isPerfomingSearch ? filteredArticles : parser.articles
         
         cell.newsTitle.text = artictlesToView[indexPath.row].title
         cell.pubDate.text = artictlesToView[indexPath.row].pubDate
-        cell.link = artictlesToView[indexPath.row].link
 
         return cell
     }
@@ -66,7 +67,6 @@ class TableViewController: UITableViewController {
         
         tableView.reloadData()
     }
-    
 }
 
 extension TableViewController: XMLParserDelegate {
