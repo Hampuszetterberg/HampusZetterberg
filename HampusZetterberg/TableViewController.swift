@@ -9,18 +9,18 @@
 import UIKit
 
 struct Constants {
-    static let feedUrl = "http://www.systembolaget.se/api/assortment/products/xml"
+    static let feedUrl = "http://rss.nytimes.com/services/xml/rss/nyt/Sports.xml"
 }
 
 class TableViewController: UITableViewController {
     private var parser: XMLParser!
-    private var parsedData = []
+    private var parsedData = [SBModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         parser = XMLParser(feed: Constants.feedUrl)
-        parsedData = parser.posts
+        parsedData = parser.articles
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,13 +30,14 @@ class TableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 24
+        return parsedData.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell : SBCell = tableView.dequeueReusableCellWithIdentifier("cell") as! SBCell
-        cell.liquorName.text = "Hampus"
+        let cell : SBCell = tableView.dequeueReusableCellWithIdentifier("cell") as! SBCell
+
+        cell.liquorName.text = parsedData[indexPath.row].name
     
        
         return cell as UITableViewCell
