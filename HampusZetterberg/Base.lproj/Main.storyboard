@@ -9,28 +9,62 @@
         <scene sceneID="S63-3r-c52">
             <objects>
                 <tableViewController id="kuL-Pn-Uuh" customClass="TableViewController" customModule="HampusZetterberg" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5Hp-82-rCD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="5Hp-82-rCD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gWe-KD-A89" customClass="SBCell" customModule="HampusZetterberg" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="90" id="gWe-KD-A89" customClass="SBCell" customModule="HampusZetterberg" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gWe-KD-A89" id="0yy-X3-ieW">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjH-tZ-QwA">
-                                            <rect key="frame" x="0.0" y="0.0" width="81" height="42"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjH-tZ-QwA" userLabel="Title">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="42" id="ccn-O1-5xg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUa-kG-NNv" userLabel="PubDate">
+                                            <rect key="frame" x="400" y="68" width="200" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="RVm-tQ-ICq"/>
+                                                <constraint firstAttribute="height" constant="20" id="pIQ-Sa-9xS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeX-2n-Wu7" userLabel="Info">
+                                            <rect key="frame" x="0.0" y="42" width="300" height="46"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="300" id="0Jk-Rr-Nkg"/>
+                                                <constraint firstAttribute="height" constant="46" id="yY8-is-OHb"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="LeX-2n-Wu7" firstAttribute="top" secondItem="xjH-tZ-QwA" secondAttribute="bottom" id="39v-yV-IIp"/>
+                                        <constraint firstAttribute="trailing" secondItem="tUa-kG-NNv" secondAttribute="trailing" id="AEr-GF-YT9"/>
+                                        <constraint firstItem="tUa-kG-NNv" firstAttribute="top" secondItem="xjH-tZ-QwA" secondAttribute="bottom" constant="26" id="DXM-dy-Jci"/>
+                                        <constraint firstItem="xjH-tZ-QwA" firstAttribute="top" secondItem="0yy-X3-ieW" secondAttribute="top" id="T2s-o2-3T6"/>
+                                        <constraint firstItem="LeX-2n-Wu7" firstAttribute="leading" secondItem="0yy-X3-ieW" secondAttribute="leading" id="VYr-jA-jjN"/>
+                                        <constraint firstAttribute="trailing" secondItem="xjH-tZ-QwA" secondAttribute="trailing" id="aPL-Zi-4as"/>
+                                        <constraint firstItem="xjH-tZ-QwA" firstAttribute="leading" secondItem="0yy-X3-ieW" secondAttribute="leading" id="hPU-hU-n6j"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="liquorName" destination="xjH-tZ-QwA" id="V5g-e5-3Dd"/>
+                                    <outlet property="newsDescription" destination="LeX-2n-Wu7" id="lvp-fc-P9O"/>
+                                    <outlet property="newsTitle" destination="xjH-tZ-QwA" id="cOT-F8-KAl"/>
+                                    <outlet property="pubDate" destination="tUa-kG-NNv" id="PEK-Ba-7bY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

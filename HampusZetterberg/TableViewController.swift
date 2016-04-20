@@ -14,7 +14,6 @@ struct Constants {
 
 class TableViewController: UITableViewController {
     private var parser: XMLParser!
-    private var parsedData = [SBModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,21 +29,25 @@ class TableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return parsedData.count
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return parser.articles.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell : SBCell = tableView.dequeueReusableCellWithIdentifier("cell") as! SBCell
 
-        cell.liquorName.text = parsedData[indexPath.row].title
-    
+        cell.newsTitle.text = parser.articles[indexPath.row].title
+        cell.newsDescription.text = parser.articles[indexPath.row].description
+        cell.pubDate.text = parser.articles[indexPath.row].pubDate
+        cell.link = parser.articles[indexPath.row].link
+
        
         return cell as UITableViewCell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let dataForSelection = parser.articles[indexPath.row]
+    }
     
     
 }
@@ -52,7 +55,6 @@ class TableViewController: UITableViewController {
 extension TableViewController: XMLParserDelegate {
     func didFinishParsing(success: Bool) {
         if success {
-            parsedData = parser.articles
             tableView.reloadData()
         }
     }
