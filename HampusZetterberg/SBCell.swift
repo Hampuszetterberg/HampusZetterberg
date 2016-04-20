@@ -10,7 +10,6 @@ import UIKit
 
 class SBCell: UITableViewCell {
     @IBOutlet weak var newsTitle: UILabel!
-    @IBOutlet weak var newsDescription: UILabel!
     @IBOutlet weak var pubDate: UILabel!
     
     var link: String = ""

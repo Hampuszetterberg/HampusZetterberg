@@ -21,7 +21,6 @@ class TableViewController: UITableViewController {
         parser = XMLParser()
         parser.delegate = self
         parser.parse(Constants.feedUrl)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,19 +36,20 @@ class TableViewController: UITableViewController {
         let cell : SBCell = tableView.dequeueReusableCellWithIdentifier("cell") as! SBCell
 
         cell.newsTitle.text = parser.articles[indexPath.row].title
-        cell.newsDescription.text = parser.articles[indexPath.row].description
         cell.pubDate.text = parser.articles[indexPath.row].pubDate
         cell.link = parser.articles[indexPath.row].link
 
-       
         return cell as UITableViewCell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let dataForSelection = parser.articles[indexPath.row]
+        
+        let newsDetailsController = NewsDetailsControllerViewController(nibName: "NewsDetailsControllerViewController", bundle: nil)
+        newsDetailsController.data = dataForSelection
+        
+        self.presentViewController(newsDetailsController, animated: true, completion: nil)
     }
-    
-    
 }
 
 extension TableViewController: XMLParserDelegate {
