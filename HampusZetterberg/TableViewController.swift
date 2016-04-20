@@ -14,9 +14,15 @@ struct Constants {
 
 class TableViewController: UITableViewController {
     private var parser: XMLParser!
+    private var filteredArticles = [SBModel]()
+    private var isPerfomingSearch = false
+    
+    @IBOutlet var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
         
         parser = XMLParser()
         parser.delegate = self
@@ -29,17 +35,19 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return parser.articles.count
+        return isPerfomingSearch ? filteredArticles.count : parser.articles.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell : SBCell = tableView.dequeueReusableCellWithIdentifier("cell") as! SBCell
+        
+        let artictlesToView = isPerfomingSearch ? filteredArticles : parser.articles
+        
+        cell.newsTitle.text = artictlesToView[indexPath.row].title
+        cell.pubDate.text = artictlesToView[indexPath.row].pubDate
+        cell.link = artictlesToView[indexPath.row].link
 
-        cell.newsTitle.text = parser.articles[indexPath.row].title
-        cell.pubDate.text = parser.articles[indexPath.row].pubDate
-        cell.link = parser.articles[indexPath.row].link
-
-        return cell as UITableViewCell
+        return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -50,6 +58,15 @@ class TableViewController: UITableViewController {
         
         self.presentViewController(newsDetailsController, animated: true, completion: nil)
     }
+    
+    private func filterWithSearch(searchText: String) {
+        filteredArticles = parser.articles.filter { article in
+            return article.title.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        tableView.reloadData()
+    }
+    
 }
 
 extension TableViewController: XMLParserDelegate {
@@ -57,5 +74,12 @@ extension TableViewController: XMLParserDelegate {
         if success {
             tableView.reloadData()
         }
+    }
+}
+
+extension TableViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        isPerfomingSearch = searchText.characters.count > 0 ? true : false
+        filterWithSearch(searchBar.text!)
     }
 }
