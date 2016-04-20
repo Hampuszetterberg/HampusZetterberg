@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SBModel {
+struct SBModel {
     var name: String = ""
     var type: String = ""
     var year: Int = 0

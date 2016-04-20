@@ -14,6 +14,7 @@
 		D44C61C01CC7D14D00920F93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44C61BE1CC7D14D00920F93 /* LaunchScreen.storyboard */; };
 		D44C61C81CC7D23700920F93 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C61C71CC7D23700920F93 /* XMLParser.swift */; };
 		D44C61CA1CC7DB3300920F93 /* SBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C61C91CC7DB3300920F93 /* SBModel.swift */; };
+		D44C61CC1CC7DD6E00920F93 /* SBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C61CB1CC7DD6E00920F93 /* SBCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D44C61C11CC7D14D00920F93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44C61C71CC7D23700920F93 /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		D44C61C91CC7DB3300920F93 /* SBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBModel.swift; sourceTree = "<group>"; };
+		D44C61CB1CC7DD6E00920F93 /* SBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				D44C61BE1CC7D14D00920F93 /* LaunchScreen.storyboard */,
 				D44C61C11CC7D14D00920F93 /* Info.plist */,
 				D44C61C91CC7DB3300920F93 /* SBModel.swift */,
+				D44C61CB1CC7DD6E00920F93 /* SBCell.swift */,
 			);
 			path = HampusZetterberg;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				D44C61B81CC7D14D00920F93 /* TableViewController.swift in Sources */,
 				D44C61B61CC7D14D00920F93 /* AppDelegate.swift in Sources */,
+				D44C61CC1CC7DD6E00920F93 /* SBCell.swift in Sources */,
 				D44C61CA1CC7DB3300920F93 /* SBModel.swift in Sources */,
 				D44C61C81CC7D23700920F93 /* XMLParser.swift in Sources */,
 			);

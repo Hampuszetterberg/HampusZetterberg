@@ -44,7 +44,7 @@ class XMLParser : NSObject,NSXMLParserDelegate {
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String) {
-        print(string)
+
         if element.isEqualToString("title") {
             title1.appendString(string)
         } else if element.isEqualToString("pubDate") {

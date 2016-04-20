@@ -13,12 +13,14 @@ struct Constants {
 }
 
 class TableViewController: UITableViewController {
-    private var Parser: XMLParser!
+    private var parser: XMLParser!
+    private var parsedData = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Parser = XMLParser(feed: Constants.feedUrl)
+        parser = XMLParser(feed: Constants.feedUrl)
+        parsedData = parser.posts
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,12 +35,10 @@ class TableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")!
-        if(cell.isEqual(NSNull)) {
-            //cell = NSBundle.mainBundle().loadNibNamed("Cell", owner: self, options: nil)[0] as UITableViewCell;
-        }
-        //cell.textLabel?.text = posts.objectAtIndex(indexPath.row).valueForKey("title") as NSString
-        //cell.detailTextLabel?.text = posts.objectAtIndex(indexPath.row).valueForKey("date") as NSString
+        var cell : SBCell = tableView.dequeueReusableCellWithIdentifier("cell") as! SBCell
+        cell.liquorName.text = "Hampus"
+    
+       
         return cell as UITableViewCell
     }
     
