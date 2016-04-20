@@ -8,22 +8,19 @@
 
 import Foundation
 
+protocol XMLParserDelegate {
+    func didFinishParsing(success: Bool)
+}
+
 class XMLParser : NSObject,NSXMLParserDelegate {
     private var parser = NSXMLParser()
-
     private var element = String()
-//    private var elements = NSMutableDictionary()
-//    private var element = String()
-//    private var title1 = NSMutableString()
-//    private var date = NSMutableString()
-    
-    var SBObject = SBModel()
+    private var object: SBModel?
     var articles = [SBModel]()
+    var delegate: XMLParserDelegate?
     
-    
-    required init(feed: String) {
-        super.init()
-        
+
+    func parse(feed: String) {
         parser = NSXMLParser(contentsOfURL:(NSURL(string:feed))!)!
         parser.delegate = self
         parser.parse()
@@ -31,35 +28,39 @@ class XMLParser : NSObject,NSXMLParserDelegate {
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         element = elementName
-        print(elementName)
+        
         if elementName == "item" {
+            object = SBModel()
         }
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String) {
-        print(string)
-        if element == "item" {
-            SBObject.name = string
+        if object != nil {
+            if element == "title" {
+                object!.title += string
+            } else if element == "link" {
+                object!.link += string
+            } else if element == "description" {
+                object!.description += string
+            }  else if element == "pubDate" {
+                object!.pubDate += string
+            }
         }
-//        if element.isEqualToString("title") {
-//            title1.appendString(string)
-//        } else if element.isEqualToString("pubDate") {
-//            date.appendString(string)
-//        }
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-//        if (elementName as NSString).isEqualToString("item") {
-//            if !title1.isEqual(nil) {
-//                elements.setObject(title1, forKey: "title")
-//            }
-//            if !date.isEqual(nil) {
-//                elements.setObject(date, forKey: "date")
-//            }
-//            posts.addObject(elements)
-//        }
-        
-        
-        articles.append(SBObject)
+        if object != nil {
+            if elementName == "item" {
+                articles.append(object!)
+            }
+        }
+    }
+    
+    func parserDidEndDocument(parser: NSXMLParser) {
+        delegate?.didFinishParsing(true)
+    }
+    
+    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
+        delegate?.didFinishParsing(false)
     }
 }

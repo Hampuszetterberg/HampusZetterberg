@@ -9,12 +9,8 @@
 import Foundation
 
 struct SBModel {
-    var name: String = ""
-    var type: String = ""
-    var year: Int = 0
-    var volume: Int = 0
-    var price: Int = 0
-    var alcoholPercent: Int = 0
-    var ecological: Bool = false
-    
+    var title: String = ""
+    var link: String = ""
+    var description: String = ""
+    var pubDate: String = ""
 }

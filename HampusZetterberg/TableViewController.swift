@@ -19,8 +19,10 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parser = XMLParser(feed: Constants.feedUrl)
-        parsedData = parser.articles
+        parser = XMLParser()
+        parser.delegate = self
+        parser.parse(Constants.feedUrl)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,11 +39,21 @@ class TableViewController: UITableViewController {
     {
         let cell : SBCell = tableView.dequeueReusableCellWithIdentifier("cell") as! SBCell
 
-        cell.liquorName.text = parsedData[indexPath.row].name
+        cell.liquorName.text = parsedData[indexPath.row].title
     
        
         return cell as UITableViewCell
     }
+
     
     
+}
+
+extension TableViewController: XMLParserDelegate {
+    func didFinishParsing(success: Bool) {
+        if success {
+            parsedData = parser.articles
+            tableView.reloadData()
+        }
+    }
 }
